@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $arts = Art::where('user_id',auth()->user()->id)->latest()->paginate(5);
+        $arts = auth()->user()->arts()->latest()->paginate(5);
         return view('home',compact('arts'));
     }
 }

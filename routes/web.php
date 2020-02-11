@@ -22,4 +22,13 @@ Route::prefix('user')->group(function(){
         ['show']
     );
 
+    Route::resource('interest','InterestController')->except(
+        [
+            'edit','update','show'
+        ]
+        );
 });
+
+Route::get('/add_to_interest/{id}','InterestController@create');
+
+

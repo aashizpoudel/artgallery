@@ -33,7 +33,12 @@
                         </div>
                         {{$arts->links()}}
                     </div>
+                </div>
+                <div class="card-footer">
+                <a href="{{route('interest.index')}}" class="btn btn-primary">Arts I am interested on</a>
+
                 <a href="{{route('art.create')}}" class="btn btn-primary">Create new listing</a>
+
                 </div>
             </div>
         </div>
