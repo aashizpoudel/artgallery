@@ -34,8 +34,9 @@ class InterestController extends Controller
     {
         //
         $user = auth()->user();
-        Interest::updateOrCreate(['user_id'=>$user->id,'art_id'=>$id],[]);
-        return back()->with('messageS','Successfully created an interest');
+        $i=Interest::updateOrCreate(['user_id'=>$user->id,'art_id'=>$id],[]);
+        // dd($i);
+        return back()->with('message','Successfully created an interest');
     }
 
     /**
