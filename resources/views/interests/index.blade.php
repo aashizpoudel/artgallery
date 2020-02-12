@@ -19,7 +19,7 @@
                     @foreach($interests as $interest)
 
                     <li class="list-group-item">
-                        <a href="#">{{$interest->user->name}}</a> is interested on <a href="#">{{$interest->art->title}}</a>
+                      I was interested at <a href="#">{{$interest->art->title}}</a> on {{$interest->created_at}}
                     </li>
 
                     @endforeach

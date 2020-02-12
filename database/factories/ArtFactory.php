@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Art::class, function (Faker $faker) {
     return [
         //
-        'title'=>$faker->city,
+        'title'=>"Art #".rand(0,2000),
         'description'=>$faker->sentence,
         'image'=>'dummy.jpg',
         'seller_phone'=>'9856045678',

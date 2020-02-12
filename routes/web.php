@@ -13,6 +13,8 @@
 
 Route::get('/','ArtController@index' );
 
+Route::view('/about','about');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
