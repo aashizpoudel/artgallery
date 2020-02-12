@@ -1,0 +1,1 @@
+ modify resources/views/art.blade.php

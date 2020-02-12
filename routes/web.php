@@ -20,9 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('user')->group(function(){
-    Route::resource('art','ArtController')->except(
-        ['show']
-    );
+    Route::resource('art','ArtController');
 
     Route::resource('interest','InterestController')->except(
         [
@@ -30,6 +28,8 @@ Route::prefix('user')->group(function(){
         ]
         );
 });
+
+Route::resource('user','UserController')->only(['show']);
 
 Route::get('/add_to_interest/{id}','InterestController@create');
 

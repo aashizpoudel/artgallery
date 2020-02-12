@@ -9,8 +9,15 @@ class ArtController extends Controller
 {
     //
 
-    public function index(){
-        $arts =Art::latest()->paginate(12);
+    public function index(Request $request){
+        $query= Art::query();
+
+        if($request->s){
+            $query=$query->where('title', 'LIKE', "%{$request->s}%");
+            $query=$query->orWhere('description', 'LIKE', "%{$request->s}%");
+            // dd($request);
+        }
+        $arts =$query->latest()->paginate(12);
         return view('welcome',compact('arts'));
     }
 
@@ -43,6 +50,11 @@ class ArtController extends Controller
 
         return back()->with('success','successfully created an ad listing');
 
+    }
+
+    public function show($id){
+        $art = Art::findOrFail($id);
+        return view('art',compact('art'));
     }
 
     public function edit($art){
